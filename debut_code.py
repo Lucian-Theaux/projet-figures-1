@@ -5,12 +5,15 @@ setup(1000,800)
 speed(0)
 title("Projet de Roméo!!")
 
+x=100
+
 def The_Cat():
+    global x
     up()
-    goto(0,0)
+    goto(0,0+x)
     down()
     global Champ_taille
-    x=100
+    fillcolor("black")
     begin_fill()
     setheading(180)
     circle(x,90)
@@ -42,12 +45,41 @@ def The_Cat():
 
 
 def The_peroquet():
+    global x
+    x2=x*1.5
     up()
-    goto(0,0)
+    goto(0-x2,0)
     down()
-    global Champ_taille
-    x=100   
+    global Champ_taille  
+    fillcolor("black")
     begin_fill()
+    setheading (90)
+    circle(x2,90)
+    setheading(180)
+    setheading(0)
+    fd(x2)
+    setheading(90)
+    circle(x2,270)
+    fd(x2)
+    end_fill()
+    backward(x2)
+    setheading(90)
+    fd((x2)*2)
+    setheading(180)
+    fillcolor("white")
+    begin_fill()
+    circle((x2)/2,180)
+    end_fill()
+    setheading(90)
+    fd((x2)/2+(x2/7))
+    fillcolor("black")
+    begin_fill()
+    circle((x2)/7)
+    end_fill()
+
+
+
+
 
 
 def figure2():
