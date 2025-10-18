@@ -1,5 +1,6 @@
-from nsi_ui import*             #On importe le module nsi_ui qui permet de créer des interfaces graphiques simples
-from turtle import*             #On importe le module turtle qui permet de dessiner
+# coding=utf-8
+from nsi_ui import *            #On importe le module nsi_ui qui permet de créer des interfaces graphiques simples
+from turtle import *            #On importe le module turtle qui permet de dessiner
 
 setup(1000,800)                 #Ici on set up le fromat de l'écran
 speed(0)                        #On définie la vitesse de la tortue à 0 (=elle ne fait pas d'animation, elle trace directement)

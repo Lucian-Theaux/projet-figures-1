@@ -1,3 +1,4 @@
+# coding=utf-8
 # from nsi_ui import *
 
 #* Liste de pensée pour plus tard
