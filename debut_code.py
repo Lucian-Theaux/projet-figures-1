@@ -1,6 +1,5 @@
-# coding=utf-8
-from nsi_ui import *            #On importe le module nsi_ui qui permet de créer des interfaces graphiques simples
-from turtle import *            #On importe le module turtle qui permet de dessiner
+from nsi_ui import*             #On importe le module nsi_ui qui permet de créer des interfaces graphiques simples
+from turtle import*             #On importe le module turtle qui permet de dessiner
 
 setup(1000,800)                 #Ici on set up le fromat de l'écran
 speed(0)                        #On définie la vitesse de la tortue à 0 (=elle ne fait pas d'animation, elle trace directement)
@@ -19,27 +18,27 @@ def The_Cat():                  #On commence la définition de la fonction qui d
     setheading(180)             #On oriente la tortue vers la gauche
     circle(x,90)                #On dessine un quart de cercle de rayon x
     setheading(0)               #On oriente la tortue vers la droite
-    fd(x*2)                     #On avance de 2fois x
+    fd(x*2+x*(1/1.8))                     #On avance de 2fois x
     circle(x,90)                #On dessine un quart de cercle de rayon x
     end_fill()                  #On termine le remplissage de cette partie
     begin_fill()
     circle(x,90)
-    fd(x*2)
+    fd(x*2+x*(1/1.8))
     setheading(270)             #On oriente la tortue vers le bas
     circle(x,90)
     fd(x*2)
     end_fill()
-    backward((x*3)-(1.3*x))     #On recule (plus simple qu de faire setheading(180) et fd) de la longueur du chat (3foisx) moins la longueur de la tête (1.3foisx)
+    backward((x*3)-(1.5*x))     #On recule (plus simple qu de faire setheading(180) et fd) de la longueur du chat (3foisx) moins la longueur de la tête (1.3foisx)
     setheading(90)
     """Ici on dessine la tête du chat"""
     begin_fill()
     fd(x*2.3)                   #ici on avance de 2.3fois x pour la hauteur de la tête + de la partie supérieur du corps qui vaut x de hauteur
     setheading(180)
-    circle((1/3)*(x*1.3),90)    #On dessine une oreille proportionelle (1/3 de la largeur de la tête)
+    circle((1/3)*(x*1.5),90)    #On dessine une oreille proportionelle (1/3 de la largeur de la tête)
     setheading(180)
-    fd((1/3)*(x*1.3))           #On avance de la largeur entre les oreilles (1/3 de la largeur de la tête)
+    fd((1/3)*(x*1.5))           #On avance de la largeur entre les oreilles (1/3 de la largeur de la tête)
     setheading(90)
-    circle((1/3)*(x*1.3),90)    #Deuxième oreille
+    circle((1/3)*(x*1.5),90)    #Deuxième oreille
     setheading(270)
     fd(x*1.3)    
     end_fill()                  #On termine le remplissage de la tête
@@ -47,7 +46,7 @@ def The_Cat():                  #On commence la définition de la fonction qui d
 
 def The_perroquet():             #On commence la définition de la fonction qui dessine "The_perroquet"
     global x                    #On précise que x est une variable globale
-    x2=x*1.5                    #Création d'une deuxième variable x2 pour que le perroquet ait un taille proportionelle au chat
+    x2=x*(3.35/2)                    #Création d'une deuxième variable x2 pour que le perroquet ait un taille proportionelle au chat
     up()
     goto(-(x2),0)               #On déplace la tortue à la position (-(x2),0)
     down()
@@ -80,12 +79,63 @@ def The_perroquet():             #On commence la définition de la fonction qui 
     end_fill()
 
 
+def The_Snake():                #On commence la définition de la fonction qui dessine "The_Snake"
+    global x
+    x3=x*(3.35/4)               #Création d'une troisième variable x3 pour que le serpent ait un taille proportionelle à la hauteur du chat
+    x4=0                        #Variable pour le déplacement horizontal du serpent
+    y1=180                      #Variables pour l'orientation des cercles (180° soit l'orientation vers la gauche)
+    y2=0                        #On initialise y2 qui représente 0° soit l'orientation vers la droite
+    r2=x*(3.35/4)               #Rayon des cercles du serpent, variable ^pour l'instant égale à x3 mais qui va representer l'opposé de x3 lors du deuxieme passage dans la boucle
+    r3=x                        #Rayon des yeux du serpent, variable pour l'instant égale à x mais qui va representer l'opposé de x lors du deuxieme passage dans la boucle
+    for i in range(2):          #On fait une boucle pour dessiner les deux serpents (gauche et droite)
+        up()
+        goto(x4,-((x3)*4.5))
+        x4=x4+2*x3              #On change la position horizontale pour le serpent de droite pour qu'il soit collé à droite du serpent de gauche
+        down()
+        fillcolor("black")
+        """On commence à desssiner Le serpent de gauche"""
+        begin_fill()
+        setheading(90)
+        fd(x3)                  #On avance de x3 pour se placer au bon endroit pour dessiner le premier quart de cercle
+        setheading(y1)          #On oriente la tortue vers la gauche ou la droite en fonction de la valeur de y1
+        circle(r2,90)           #On dessine un quart de cercle de rayon r2
+        setheading(y2)          #On oriente la tortue vers la droite ou la gauche en fonction de la valeur de y2
+        fd(x3)
+        circle(r2,180)
+        setheading(90)
+        fd(x3)
+        setheading(y1)
+        circle(r2,180)
+        setheading(90)
+        fd(x3)
+        setheading(y2)
+        circle(r2,180)
+        fd(x3)
+        setheading(270)
+        circle(r2,90)
+        end_fill()
+        setheading(90)
+        fd((x)*(6/10))          #On avance pour se placer au bon endroit pour dessiner les yeux
+        fillcolor("white")
+        """Dans cette partie on dessine les yeux du serpent"""
+        begin_fill()
+        circle(r3*(1/10))       #On dessine le cercle blanc de l'œil avec un rayon proportionelle au rayon de la tête du serpent
+        end_fill()
+        """!Partie très importante de la fonction The_Snake! Ici on inverse les variables pour dessiner le serpent de droite de façon symétrique au serpent de gauche"""
+        ybis=y1                 #On utilise une variable temporaire ybis pour échanger les valeurs de y1 et y2 (elle prend la valeur de y1)
+        y1=y2                   #Y1 prend la valeur de y2
+        y2=ybis                 #Y2 prend la valeur de ybis (donc la valeur initiale de y1)
+        r2=-r2                  #On inverse le signe de r2 pour que les cercles soient dessinés dans l'autre sens
+        r3=-r3                  #On inverse le signe de r3 pour que les yeux(=cercle) soient dessinés dans l'autre sens
+
+
 
 
 
 """Ici on définit les boutons et l'interface grâce à tkinter via le module nsi_ui"""
 button("Chat", The_Cat)                             #Le premier bouton qui dessine le chat
 button("Peroquet", The_perroquet)                   #Le deuxième bouton qui dessine le perroquet
+button("Serpent", The_Snake)
 
 
 mainloop()                                          #Fonction pour garder la fenêtre graphique ouverte 
