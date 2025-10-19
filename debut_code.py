@@ -139,3 +139,4 @@ button("Serpent", The_Snake)
 
 
 mainloop()                                          #Fonction pour garder la fenêtre graphique ouverte 
+
