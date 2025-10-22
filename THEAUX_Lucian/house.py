@@ -1,5 +1,5 @@
 # coding=utf-8
-# from nsi_ui import *
+from nsi_ui import *
 
 ###### * Liste de pensée pour plus tard * ######
 
@@ -7,17 +7,15 @@
 
 from turtle import *
 speed(0)
+fillcolor('black')
 
 setup(800,800)
 
 #! Constantes à ne pas changer pour maintenir les symbol dans leur bonne forme
 circle_radius = 0.65
-metric_slider = 100
 
 def maison():
-    # metric = get_int(metric_slider)
-    global metric_slider
-    metric = metric_slider
+    metric = get_int(metric_slider)
     setheading(0)
 
     begin_fill()
@@ -128,10 +126,95 @@ def maison():
     left(45)
     forward(metric*0.44)
     left(135)
+    forward(metric*0.63)
+    right(90)
+    forward(metric*0.31)
+    end_fill()
+
+    up()
+    right(90)
     forward(metric*0.64)
     right(90)
-    forward(metric*0.32)
+    forward(metric*0.15)
+    left(90)
+    down()
+
+    begin_fill()
+    circle(metric*0.15,90)
+    right(180)
+    circle(metric*0.15,90)
+    left(180)
+    circle(metric*0.15,90)
+    left(180)
+    circle(metric*0.15,90)
     end_fill()
+
+    up()
+    circle(metric*0.15,-90)
+    left(180)
+    forward(metric*0.32)
+    left(90)
+    down()
+
+    begin_fill()
+    circle(metric*0.15,90)
+    right(180)
+    circle(metric*0.15,90)
+    left(180)
+    circle(metric*0.15,90)
+    left(180)
+    circle(metric*0.15,90)
+    end_fill()
+
+    up()
+    left(90)
+    forward(metric*0.31)
+    down()
+
+    begin_fill()
+    circle(metric*0.15,90)
+    right(180)
+    circle(metric*0.15,90)
+    left(180)
+    circle(metric*0.15,90)
+    left(180)
+    circle(metric*0.15,90)
+    end_fill()
+
+    up()
+    left(180)
+    forward(metric*0.62)
+    left(90)
+    forward(metric*0.79)
+    down()
+
+    begin_fill()
+    circle(metric*0.31, 180)
+    left(90)
+    forward(metric*0.16)
+    right(90)
+    circle(metric*0.15, -180)
+    right(90)
+    forward(metric*0.16)
+    end_fill()
+
+    left(180)
+    forward(metric*1.2)
+    right(90)
+
+    begin_fill()
+    circle(metric*0.31, 180)
+    left(90)
+    forward(metric*0.16)
+    right(90)
+    circle(metric*0.15, -180)
+    right(90)
+    forward(metric*0.16)
+    end_fill()
+
+
+
+
 
 
 
@@ -275,11 +358,9 @@ def poissons():
     circle(metric*0.63, 90)
     end_fill()
 
-maison()
-
-# button('Hirondelle', hirondelle)
-# button('Poissons',poissons)
-# button('Maison',maison)
-# metric_slider = slider('Metric', 0, 100,)
+button('Hirondelle', hirondelle)
+button('Poissons',poissons)
+button('Maison',maison)
+metric_slider = slider('Metric', 0, 100,)
 
 mainloop()
