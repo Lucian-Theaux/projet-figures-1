@@ -686,6 +686,8 @@ def poissons():
 
 
 title('Projet - n°1 | Animaux')
+setup(1000,1000)
+
 
 begin_vertical()
 begin_horizontal()
