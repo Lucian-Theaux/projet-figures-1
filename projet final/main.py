@@ -16,7 +16,7 @@ def The_Cat():                  #On commence la définition de la fonction qui d
     setheading(180)             #On oriente la tortue vers la gauche
     circle(metric,90)                #On dessine un quart de cercle de rayon metric
     setheading(0)               #On oriente la tortue vers la droite
-    fd(metric*2+metric*(1/1.8))                     #On avance de 2fois metric
+    fd(metric*2+metric*(1/1.8))                     #On avance de manière proportionnelle 
     circle(metric,90)                #On dessine un quart de cercle de rayon metric
     end_fill()                  #On termine le remplissage de cette partie
     begin_fill()
