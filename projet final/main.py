@@ -7,10 +7,13 @@ from math import *
 #* ------------------- PROGRAMMES DE ROMÉO HUYNH ------------------- *#
 
 def The_Cat():                  #On commence la définition de la fonction qui dessine "The_Cat"             
+    speed(get_int(speed_turtle))
     metric = get_int(metric_slider) #On précise que metric est une variable globale
+    
     up()                        #On lève le crayon pour ne pas dessiner en se déplaçant
-    goto(0,metric)                   #On déplace la tortue à la position (0,metric)
+    goto(400-metric*2.5,400-metric*2.5)                   #On déplace la tortue à la position (0,metric)
     down()                      #On baisse le crayon pour dessiner
+    
     fillcolor("black")          #On choisit la couleur de remplissage
     begin_fill()                #On commence le remplissage
     setheading(180)             #On oriente la tortue vers la gauche
@@ -42,11 +45,14 @@ def The_Cat():                  #On commence la définition de la fonction qui d
     end_fill()                  #On termine le remplissage de la tête
 
 def The_perroquet():             #On commence la définition de la fonction qui dessine "The_perroquet"
+    speed(get_int(speed_turtle))
     metric = get_int(metric_slider)                 #On précise que metric est une variable globale
     metric2=metric*(3.35/2)                    #Création d'une deumetricième variable metric2 pour que le perroquet ait un taille proportionelle au chat
+    
     up()
-    goto(-(metric2),0)               #On déplace la tortue à la position (-(metric2),0)
+    goto(-400+metric2*2,-400)       #On déplace la tortue à la position (-(metric2),0)
     down()
+    
     fillcolor("black")
     """on commence la forme principale du perroquet en noir (le corps/l'ombre/le derrière en noir)"""
     begin_fill()
@@ -75,7 +81,8 @@ def The_perroquet():             #On commence la définition de la fonction qui 
     circle((metric2)/7)              #On dessine la pupille grâce à un cercle que l'on va remplir (+facile circle que dot pour l'emplacement du début de tracage)
     end_fill()
 
-def The_Snake():                #On commence la définition de la fonction qui dessine "The_Snake"
+def The_Snake():                          #On commence la définition de la fonction qui dessine "The_Snake"
+    speed(get_int(speed_turtle))             
     metric = get_int(metric_slider) 
     metric3=metric*(3.35/4)               #Création d'une troisième variable metric3 pour que le serpent ait un taille proportionelle à la hauteur du chat
     metricy=0                        #Variable pour le déplacement horizontal du serpent
@@ -83,11 +90,12 @@ def The_Snake():                #On commence la définition de la fonction qui d
     orientation_cercle2=0                        #On initialise orentation_cercle2 qui représente 0° soit l'orientation vers la droite
     sens_cercle1=metric*(3.35/4)               #Rayon des cercles du serpent, variable pour l'instant égale à metric3 mais qui va representer l'opposé de metric3 lors du deumetricieme passage dans la boucle
     sens_cercle2=metric                        #Rayon des yeumetric du serpent, variable pour l'instant égale à metric mais qui va representer l'opposé de metric lors du deumetricieme passage dans la boucle
+    
+    up()                                    #On lève le crayon pour ne pas dessiner en se déplaçant
+    goto(400-metric*2.5,-400)                   #On déplace la tortue à la position (0,metric)
+    down()  
+    
     for i in range(2):          #On fait une boucle pour dessiner les deumetric serpents (gauche et droite)
-        up()
-        goto(metricy,-((metric3)*4.5))
-        metricy=metricy+2*metric3              #On change la position horizontale pour le serpent de droite pour qu'il soit collé à droite du serpent de gauche
-        down()
         fillcolor("black")
         """On commence à desssiner Le serpent de gauche"""
         begin_fill()
@@ -123,6 +131,17 @@ def The_Snake():                #On commence la définition de la fonction qui d
         orientation_cercle2=variable_tampon                 #orientation_cercle2 prend la valeur de varaible_tampon(donc la valeur initiale de orientation_cercle1)
         sens_cercle1=-sens_cercle1                  #On inverse le signe de sens_cercle1 pour que les cercles soient dessinés dans l'autre sens(antihoraire/horraire)
         sens_cercle2=-sens_cercle2                  #On inverse le signe de sens_cercle2 pour que les yeux(=cercle) soient dessinés dans l'autre sens(antihoraire/horraire)
+        
+        up()
+        setheading(0)
+        fd(metric3)
+        right(90)
+        fd(metric3*3)
+        left(90)
+        fd(metric3)
+        down()
+    
+    fillcolor('black')                 
 
 
 #* ------------------- PROGRAMMES DE NATHAN EUDELIN ------------------- *#
@@ -130,6 +149,11 @@ def The_Snake():                #On commence la définition de la fonction qui d
 def crocodile():
     metric = get_int(metric_slider) 
     speed(get_int(speed_turtle))
+
+    up()                                        #On lève le crayon pour ne pas dessiner en se déplaçant
+    goto(-400+metric*2.5,400-metric*2.5)                   #On déplace la tortue à la position (0,metric)
+    down() 
+
     setheading(0)
     fillcolor()
     begin_fill()
@@ -182,6 +206,10 @@ def crocodile():
 def lion():
     metric = get_int(metric_slider)
     speed(get_int(speed_turtle))
+
+    up()
+    goto(-metric, 400-metric*2.5)
+    down()
 
     setheading(0)
     begin_fill()
@@ -355,6 +383,10 @@ def loup():
 def maison():
     metric = get_int(metric_slider)
     speed(get_int(speed_turtle))
+
+    up()
+    goto(-metric/1.5, -400)
+    down()
 
     setheading(0)
 
@@ -628,7 +660,7 @@ def poissons():
     speed(get_int(speed_turtle))
 
     up()
-    goto(400-metric*2, (metric/2))
+    goto(400-metric*2, (metric/1.5))
     down()
 
     setheading(0)
