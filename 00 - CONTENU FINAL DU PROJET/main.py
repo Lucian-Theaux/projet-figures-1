@@ -1,4 +1,9 @@
 # coding=utf-8
+#* Projet réalisé par :
+#* Roméo HUYNH
+#* Lucian THÉAUX 
+#* Nathan EUDELIN
+
 #* Ici nous importons les librairies Python importantes pour le programmes, donc NSI_UI pour l'interface interactive et Turtle pour la partie graphique et dessin
 from nsi_ui import *
 from turtle import *
@@ -11,7 +16,7 @@ def The_Cat():                  #On commence la définition de la fonction qui d
     metric = get_int(metric_slider) #On précise que metric est une variable globale
     
     up()                        #On lève le crayon pour ne pas dessiner en se déplaçant
-    goto(400-metric*2.5,400-metric*2.5)                   #On déplace la tortue à la position (0,metric)
+    goto(400-metric*2.5,400-metric*2)                   #On déplace la tortue à la position (0,metric)
     down()                      #On baisse le crayon pour dessiner
     
     fillcolor("black")          #On choisit la couleur de remplissage
@@ -136,7 +141,7 @@ def The_Snake():                          #On commence la définition de la fonc
         setheading(0)
         fd(metric3)
         right(90)
-        fd(metric3*3)
+        fd((metric3*3)+((metric)*(6/10)))
         left(90)
         fd(metric3)
         down()
@@ -146,8 +151,8 @@ def The_Snake():                          #On commence la définition de la fonc
 
 #* ------------------- PROGRAMMES DE NATHAN EUDELIN ------------------- *#
 
-def crocodile():
-    metric = get_int(metric_slider) 
+def crocodile():                #Définition de la fonction crocodile pour se comprendre que le code du crocodile est le suivant
+    metric = 1.3*(get_int(metric_slider)) 
     speed(get_int(speed_turtle))
 
     up()                                        #On lève le crayon pour ne pas dessiner en se déplaçant
@@ -156,8 +161,8 @@ def crocodile():
 
     setheading(0)
     fillcolor()
-    begin_fill()
-    backward(metric*2.81)
+    begin_fill()                #On commence le remplissage
+    backward(metric*2.81)        #On commence a dessiner le contour
     left(90)
     right(45)
     forward(metric*1.91)
@@ -169,7 +174,7 @@ def crocodile():
     forward(metric*1.71)
     left(135)
     forward(metric*0.48)
-    for i in range(4):
+    for i in range(4):          #Création d'une boucle pour les dents du crocodile
         left(135)
         forward(metric*0.33)
         right(135)
@@ -203,24 +208,24 @@ def crocodile():
         right(135)
     end_fill()
 
-def lion():
-    metric = get_int(metric_slider)
+def lion():         #Définition de la fonction lion pour se comprendre que le code du lion est le suivant
+    metric = 1.3*(get_int(metric_slider))
     speed(get_int(speed_turtle))
 
     up()
-    goto(-metric, 400-metric*2.5)
+    goto(-(metric*1.6), 400-metric*2.5)
     down()
 
     setheading(0)
-    begin_fill()
-    forward(metric*0.73)
+    begin_fill()                #On commence le remplissage
+    forward(metric*0.73)        #On commence a dessiner le contour
     left(135)
     forward(metric*1.02)
     left(135)
     forward(metric*0.73)
     left(90)
-    end_fill()
-    up()
+    end_fill()                  #On arrête le remplissage pour éviter les bugs de couleurs
+    up()                        #On lève le stylo pour ne pas impacter l'image final
     forward(metric*2.02)
     down()
     begin_fill()
@@ -234,7 +239,7 @@ def lion():
     up()
     forward(metric*0.67)
     down()
-    begin_fill()
+    begin_fill()       #J'ouvre un nouveau remplissage, le défi était vraiment de jongler entre lever/poser le stylo et ouvrir/fermer le remplissage 
     right(45)
     forward(metric*1.96)
     right(45)
@@ -314,20 +319,20 @@ def lion():
     forward(metric*0.71)
     right(135)
     forward(metric*0.51)
-    end_fill()
+    end_fill()                  #On arrête le remplissage 
 
-def loup():
-    metric = get_int(metric_slider)
+def loup():             #Définition de la fonction loup pour se comprendre que le code du loup est le suivant
+    metric = 1.3*(get_int(metric_slider))
     speed(get_int(speed_turtle))
     
     up()
-    goto(-(metric/2), (metric/2))
+    goto(-(metric*1.5), (metric/2))
     down()
 
     setheading(0)
-    fillcolor()          
-    begin_fill()
-    backward(metric*0.34)
+    fillcolor()             #On choisi la couleur de base: le noir      
+    begin_fill()            #On commence le remplissage 
+    backward(metric*0.34)       #On commence à dessiner les contours
     left(90)
     forward(metric*1.04)
     left(225)
@@ -356,12 +361,12 @@ def loup():
     forward(metric*0.34)
     right(135)
     forward(metric*0.47)
-    up()
+    up()                    #Je lève le stylo pour ne pas impacter l'image finale et éviter les anomalies 
     right(45)
     forward(metric*0.86) 
     down() 
-    circle(metric*-0.17,360) 
-    end_fill()
+    circle(metric*-0.17,360)                #Je dessine un cercle pour l'oeil du loup 
+    end_fill()                              #Je ferme le remplissage car sinon il y a des problèmes avec les couleurs 
     up()
     forward(metric*1.2)
     left(90)
@@ -375,28 +380,28 @@ def loup():
     circle(metric*0.35,90)
     left(180)
     circle(metric*0.35,90)
-    end_fill()
+    end_fill()                                  #Fin du remplissage global
 
 
 #* ------------------- PROGRAMMES DE LUCIAN THÉAUX ------------------- *#
 
 def maison():
-    metric = get_int(metric_slider)
-    speed(get_int(speed_turtle))
+    metric = 1.5*(get_int(metric_slider)) #! Définition de la métrique nommée 'metric'
+    speed(get_int(speed_turtle))          #! Définition de la vitesse de la tortue avec le slider se trouvant sur la fenêtre de nsi_ui
 
     up()
-    goto(-metric/1.5, -400)
+    goto(-(metric*1.3), -400)             #* On déplace la maison à son emplacement en bas au centre 
     down()
 
-    setheading(0)
+    setheading(0)                         #* On oriente la tête vers la droite
 
-    begin_fill()
+    begin_fill()                          #* La tortue crée la partie basse avec une boucle for créant 4 piques
     forward(metric*1.9)
     circle(metric*0.32, 90)
 
     left(45)
     for i in range(4):
-        forward(metric*0.44)
+        forward(metric*0.44)              #* Le contenu de la boucle est une pique qui a un angle de 90°
         left(90)
         forward(metric*0.44)
         right(90)
@@ -404,21 +409,21 @@ def maison():
     left(135)
     circle(metric*0.32, 90)
     end_fill()
-
-    up()
+                                        
+    up()                                  #* On déplace la tortue vers la partie haute 
     forward(metric*1.9)
     circle(metric*0.32, 90)
     forward(metric*1.6)
     circle(metric*0.32, 90)
     down()
 
-    begin_fill()
+    begin_fill()                          #* La tortue crée la partie haute avec une boucle for créant 4 piques orienté vers la bas
     forward(metric*1.9)
     circle(metric*0.32, 90)
 
     left(45)
     for i in range(4):
-        forward(metric*0.44)
+        forward(metric*0.44)              #* Idem pour cette boucle
         left(90)
         forward(metric*0.44)
         right(90)
@@ -427,7 +432,7 @@ def maison():
     circle(metric*0.32, 90)
     end_fill()
 
-    up()
+    up()                                  #* La tortue se positionne sur la premiere pique de la partie basse
     forward(metric*1.85)
     circle(metric*0.32, 90)
     forward(metric*1.6)
@@ -436,8 +441,8 @@ def maison():
     right(45)
     down()
 
-    for i in range(3):
-        begin_fill()
+    for i in range(3):                     #* La tortue crée une répétition de 3 triangles pour créer un sapin 
+        begin_fill()                       #* On crée ici 1 triangle possédant les mêmes mesures que les piques créées précédement
         forward(metric*0.31)
         left(135)
         forward(metric*0.44)
@@ -450,14 +455,14 @@ def maison():
         forward(metric*0.32)
         right(90)
     
-    up()
+    up()                                   #* La tortue se déplace vers la dernière pique de la partie basse
     forward(metric*1.87)
     right(90)
     forward(metric*0.96)
     left(90)
     down()
 
-    for i in range(3):
+    for i in range(3):                     #* Idem pour cette boucle on crée le même sapin mais cette fois-ci à droite
         begin_fill()
         forward(metric*0.31)
         left(135)
@@ -471,7 +476,7 @@ def maison():
         forward(metric*0.32)
         right(90)
     
-    up()
+    up()                                   #* La souris se déplace vers la pointe droite du premier triangle constituant le sapin de gauche
     right(90)
     forward(metric*0.96)
     right(90)
@@ -481,7 +486,7 @@ def maison():
     left(90)
     down()
 
-    begin_fill()
+    begin_fill()                           #* La souris crée la maison au centre de la figure
     forward(metric*0.32)
     right(45)
     forward(metric*0.44)
@@ -503,7 +508,7 @@ def maison():
     forward(metric*0.31)
     end_fill()
 
-    up()
+    up()                                   #* La souris se déplace entre la maison et les piques du haut
     right(90)
     forward(metric*0.64)
     right(90)
@@ -511,7 +516,7 @@ def maison():
     left(90)
     down()
 
-    begin_fill()
+    begin_fill()                           #* La souris effectue une étoile à partir de 4 quarts de cercle
     circle(metric*0.15,90)
     right(180)
     circle(metric*0.15,90)
@@ -521,14 +526,14 @@ def maison():
     circle(metric*0.15,90)
     end_fill()
 
-    up()
+    up()                                   #* La souris se déplace sur l'axe centrale vertical et se déplace un peu plus haut sur l'axe horizontale
     circle(metric*0.15,-90)
     left(180)
     forward(metric*0.32)
     left(90)
     down()
 
-    begin_fill()
+    begin_fill()                           #* La souris ré-effectue une étoile
     circle(metric*0.15,90)
     right(180)
     circle(metric*0.15,90)
@@ -538,12 +543,12 @@ def maison():
     circle(metric*0.15,90)
     end_fill()
 
-    up()
+    up()                                   #* La souris se déplace vers la droite sur le même niveau que la première étoile
     left(90)
     forward(metric*0.31)
     down()
 
-    begin_fill()
+    begin_fill()                           #* La souris effectue une dernière étoile
     circle(metric*0.15,90)
     right(180)
     circle(metric*0.15,90)
@@ -553,14 +558,14 @@ def maison():
     circle(metric*0.15,90)
     end_fill()
 
-    up()
+    up()                                   #* La souris se déplace sur la partie haute du côté droit
     left(180)
     forward(metric*0.62)
     left(90)
     forward(metric*0.79)
     down()
 
-    begin_fill()
+    begin_fill()                           #* La souris effectue une anse constituée d'un grand cercle avec avec un petit cercle
     circle(metric*0.31, 180)
     left(90)
     forward(metric*0.16)
@@ -570,11 +575,11 @@ def maison():
     forward(metric*0.16)
     end_fill()
 
-    left(180)
+    left(180)                              #* La souris se déplace vers la gauche pour se placer sur la gauche
     forward(metric*1.2)
     right(90)
 
-    begin_fill()
+    begin_fill()                           #* La souris crée un seconde anse
     circle(metric*0.31, 180)
     left(90)
     forward(metric*0.16)
@@ -585,11 +590,11 @@ def maison():
     end_fill()
 
 def hirondelle():
-    metric = get_int(metric_slider)
+    metric = 1.5*(get_int(metric_slider))
     speed(get_int(speed_turtle))
 
     up()
-    goto(-400, -(metric/2))
+    goto(-380, -(metric))
     down()
 
 
@@ -656,7 +661,7 @@ def hirondelle():
     end_fill()
 
 def poissons():
-    metric = get_int(metric_slider)
+    metric = 1.5*(get_int(metric_slider))
     speed(get_int(speed_turtle))
 
     up()
@@ -729,22 +734,36 @@ def poissons():
     circle(metric*0.63, 90)
     end_fill()
 
+def all_animals():
+    crocodile()
+    lion()
+    The_Cat()
+    hirondelle()
+    loup()
+    poissons()
+    The_perroquet()
+    maison()
+    The_Snake()
+
 
 title('Projet - n°1 | Animaux')
 setup(900,900)
 
 
 begin_vertical()
+label('Roméo HUYNH')
 begin_horizontal()
 button('Crocodile', crocodile)
 button('Lion', lion)
 button('Chat', The_Cat)
 end_horizontal()
+label('Nathan EUDELIN')
 begin_horizontal()
 button('Hirondelle', hirondelle)
 button('Loup', loup)
 button('Poissons', poissons)
 end_horizontal()
+label('Lucian THÉAUX')
 begin_horizontal()
 button('Perroquet', The_perroquet)
 button('Maison', maison)
@@ -752,6 +771,10 @@ button('Serpents', The_Snake)
 end_horizontal()
 metric_slider = slider('Métrique', 0, 100)
 speed_turtle = slider('Vitesse', 0, 10)
+begin_horizontal()
+button('Effacer', clearscreen)
+button('One-shot', all_animals)
+end_horizontal()
 end_vertical()
 
 mainloop()
